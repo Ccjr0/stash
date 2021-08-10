@@ -1,6 +1,6 @@
-# ------------------------------------------------------
-#                   --- ZSHRC ---                      |
-# ------------------------------------------------------
+# -----------------------------------------------
+#                   --- ZSHRC ---               |
+# -----------------------------------------------
 PROMPT='%F{blue}%n%f@%F{white}%m%f %F{blue}%B%~%b%f '
 
 # The following lines were added by zsh-newuser-install
@@ -18,9 +18,7 @@ compinit
 # End of lines added by compinstall
 
 
-# ------------------------------------------------------
-# Common                                               |
-# ------------------------------------------------------
+# Common ----------------------------------------
 # For enabling autocompletion of privileged environments in privileged commands (e.g. if you complete a command starting with sudo, completion scripts will also try to determine your completions with sudo), include: 
 zstyle ':completion::complete:*' gain-privileges 1
 
@@ -41,16 +39,14 @@ setopt numericglobsort
 setopt histignorealldups
 
 
-# ------------------------------------------------------
-# Vi mode                                              |
-# ------------------------------------------------------
+# Vi mode --------------------------------------- 
 export KEYTIMEOUT=1
 
-# --- Edit line in vim buffer ctrl-v
+# Edit line in vim buffer ctrl-v
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^v' edit-command-line
 
-# --- Enter vim buffer from normal mode
+# Enter vim buffer from normal mode
 autoload -U edit-command-line && zle -N edit-command-line && bindkey -M vicmd "^v" edit-command-line
 
 # Fix backspace bug when switching modes
@@ -96,10 +92,8 @@ echo -ne '\e[6 q' # Use beam shape cursor on startup.
 precmd() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 
 
-# ------------------------------------------------------
-# Aliases                                              |
-# ------------------------------------------------------
-# --- Unused
+# Aliases ---------------------------------------
+# Unused
 #alias ls='ls --color=auto --group-directories-first'
 #alias la='ls -A --color=auto --group-directories-first'
 #alias ll='ls -alF --color=auto --group-directories-first'
@@ -121,14 +115,14 @@ alias vim='nvim'
 alias ytmdl='ytmdl --skip-meta'
 alias mkdir='mkdir -p'
 
-# --- Convenience
+# Convenience
 alias xup='xrdb ~/.Xresources'
 alias gitup='git add . && git commit && git push'
 
-# --- 'sudo' alias fix
+# 'sudo' alias fix
 alias sudo='nocorrect sudo -E '         
 
-# --- Typo aliases 
+# Typo aliases 
 alias claer='clear'
 alias cealr='clear'
 alias clare='clear'
@@ -144,9 +138,7 @@ alias rebot='reboot'
 alias reboto='reboot'
 
 
-# ------------------------------------------------------
-# Export                                               |
-# ------------------------------------------------------
+# Export ----------------------------------------
 export VISUAL='nvim'
 export VIDEO='vlc'
 export AUDIO='vlc'
@@ -155,9 +147,7 @@ export PAGER='less'
 export VIEWER='okular'
 
 
-# ------------------------------------------------------
-# NNN                                                  |
-# ------------------------------------------------------
+# NNN -------------------------------------------
 #export NNN_PLUG=
 #export NNN_SSHFS="sshfs -o follow_symlinks"        # make sshfs follow symlinks on the remote
 #export NNN_COLORS="2136"                           # use a different color for each context
@@ -168,9 +158,7 @@ export VIEWER='okular'
 #set --export NNN_FIFO "/tmp/nnn.fifo"
 
 
-# ------------------------------------------------------
-# RUST                                                 |
-# ------------------------------------------------------
+# RUST ------------------------------------------
 #. "$HOME/.cargo/env"
 
 
