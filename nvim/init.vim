@@ -19,14 +19,24 @@ set splitbelow splitright
 set clipboard=unnamedplus
 set iskeyword+=-
 set updatetime=300
+set noswapfile
+
+set t_8f=^[[38:2:%lu:%lu:%lum
+set t_8b=^[[48:2:%lu:%lu:%lum
 
 set statusline=
-set statusline+=\ %M
+set statusline+=%#PmenuSel#
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
 set statusline+=\ %y
-set statusline+=\ %r
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
-set statusline+=\ %c:%l/%L
-set statusline+=\ %F
+set statusline+=\ %l:%c
+set statusline+=\ 
 
 vnoremap < <gv
 vnoremap > >gv

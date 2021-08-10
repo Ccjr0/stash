@@ -1,10 +1,7 @@
-# ==================
-# ====  ZSHRC  =====
-# ==================
-
-
+# ------------------------------------------------------
+#                   --- ZSHRC ---                      |
+# ------------------------------------------------------
 PROMPT='%F{blue}%n%f@%F{white}%m%f %F{blue}%B%~%b%f '
-
 
 # The following lines were added by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -12,7 +9,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt autocd extendedglob nomatch
 # End of lines configured by zsh-newuser-install
-
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/ccjr/.zshrc'
@@ -22,12 +18,16 @@ compinit
 # End of lines added by compinstall
 
 
+# ------------------------------------------------------
+# Common                                               |
+# ------------------------------------------------------
 # For enabling autocompletion of privileged environments in privileged commands (e.g. if you complete a command starting with sudo, completion scripts will also try to determine your completions with sudo), include: 
 zstyle ':completion::complete:*' gain-privileges 1
+
 # Auto complete with case insenstivity
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+#source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /home/ccjr/.config/broot/launcher/bash/br
 
@@ -96,11 +96,10 @@ echo -ne '\e[6 q' # Use beam shape cursor on startup.
 precmd() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 
 
-
 # ------------------------------------------------------
 # Aliases                                              |
 # ------------------------------------------------------
-# --- OLD
+# --- Unused
 #alias ls='ls --color=auto --group-directories-first'
 #alias la='ls -A --color=auto --group-directories-first'
 #alias ll='ls -alF --color=auto --group-directories-first'
@@ -112,9 +111,9 @@ precmd() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 #alias SNIPER='cd ~/github/SniperGame && lazygit'
 
 alias cp="cp -i"
-alias ls='lsd --group-dirs first'
-alias la='lsd -A --group-dirs first'
-alias ll='lsd -alF --group-dirs first'
+alias ls='exa --icons --group-directories-first'
+alias la='exa --icons -a --group-directories-first'
+alias ll='exa --icons -alF --group-directories-first'
 alias bat='bat --wrap=auto'
 alias n='nnn -A -e'
 alias sn='sudo nnn -A -e'
@@ -122,10 +121,12 @@ alias vim='nvim'
 alias ytmdl='ytmdl --skip-meta'
 alias mkdir='mkdir -p'
 
+# --- Convenience
 alias xup='xrdb ~/.Xresources'
 alias gitup='git add . && git commit && git push'
 
-alias sudo='nocorrect sudo -E '         # 'sudo' alias fix
+# --- 'sudo' alias fix
+alias sudo='nocorrect sudo -E '         
 
 # --- Typo aliases 
 alias claer='clear'
