@@ -4,15 +4,21 @@
 syntax enable 
 
 " Key mappings ----------------------------------
-vnoremap < <gv
-vnoremap > >gv
-vnoremap J <nop>
-vnoremap K <nop>
 nnoremap q <nop>
 nnoremap Q <nop>
 nnoremap K <nop>
 nnoremap J <nop>
-"nnoremap g0 $
+nnoremap _ <nop>
+nnoremap = <nop>
+nnoremap - $
+
+vnoremap < <gv
+vnoremap > >gv
+vnoremap - $
+vnoremap _ <nop>
+vnoremap = <nop>
+vnoremap J <nop>
+vnoremap K <nop>
 
 " Settings --------------------------------------
 set hidden
@@ -23,7 +29,7 @@ set autoindent
 set tabstop=4
 set softtabstop=4
 set expandtab
-set ignorecase
+set ignorecase      "case insensitive search
 set smartcase
 set encoding=utf-8
 set number          "display line numbers
@@ -33,7 +39,7 @@ set wildmode=longest,list,full
 set splitbelow splitright
 set clipboard=unnamedplus
 set iskeyword+=-
-set noswapfile
+set noswapfile      "disable swap creation
 
 " Status line -----------------------------------
 set statusline=
