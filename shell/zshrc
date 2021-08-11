@@ -25,18 +25,14 @@ zstyle ':completion::complete:*' gain-privileges 1
 # Auto complete with case insenstivity
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-#source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /home/ccjr/.config/broot/launcher/bash/br
-
-# Search repos for programs that can't be found
-#source /usr/share/doc/pkgfile/command-not-found.zsh 2>/dev/null
-
-setopt nocaseglob
-setopt rcexpandparam
-setopt nocheckjobs
-setopt numericglobsort
 setopt histignorealldups
+
+
+# Sources ---------------------------------------
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/gitstatus/gitstatus.prompt.zsh
+source ~/.config/broot/launcher/bash/br
 
 
 # Vi mode --------------------------------------- 
@@ -148,14 +144,14 @@ export VIEWER='okular'
 
 
 # NNN -------------------------------------------
-#export NNN_PLUG=
-#export NNN_SSHFS="sshfs -o follow_symlinks"        # make sshfs follow symlinks on the remote
-#export NNN_COLORS="2136"                           # use a different color for each context
-#export NNN_TRASH=1                                 # trash (needs trash-cli) instead of delete
-#export LC_COLLATE="C" # Sort hidden files first (NNN)
-#export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$" # bsdtar can extract, list and archivemount can mount ISO 9660 cdrom images (extn: iso).
-#export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
-#set --export NNN_FIFO "/tmp/nnn.fifo"
+export NNN_PLUG=
+export NNN_SSHFS="sshfs -o follow_symlinks"        # make sshfs follow symlinks on the remote
+export NNN_COLORS="2136"                           # use a different color for each context
+export NNN_TRASH=1                                 # trash (needs trash-cli) instead of delete
+export LC_COLLATE="C" # Sort hidden files first (NNN)
+export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$" # bsdtar can extract, list and archivemount can mount ISO 9660 cdrom images (extn: iso).
+export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
+set --export NNN_FIFO "/tmp/nnn.fifo"
 
 
 # RUST ------------------------------------------
