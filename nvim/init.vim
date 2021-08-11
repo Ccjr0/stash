@@ -6,11 +6,13 @@ syntax enable
 " Key mappings ----------------------------------
 vnoremap < <gv
 vnoremap > >gv
+vnoremap J <nop>
+vnoremap K <nop>
 nnoremap q <nop>
 nnoremap Q <nop>
 nnoremap K <nop>
 nnoremap J <nop>
-nnoremap g0 $
+"nnoremap g0 $
 
 " Settings --------------------------------------
 set hidden
