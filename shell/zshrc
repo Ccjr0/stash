@@ -1,5 +1,5 @@
 # -----------------------------------------------
-#                   --- ZSHRC ---               |
+#                  --- ZSHRC ---                #
 # -----------------------------------------------
 PROMPT='%F{blue}%n%f@%F{white}%m%f %F{blue}%B%~%b%f '
 
@@ -17,8 +17,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-
-# Common ----------------------------------------
+#------------------------------------------------
+# Common                                        #
+#------------------------------------------------
 # For enabling autocompletion of privileged environments in privileged commands (e.g. if you complete a command starting with sudo, completion scripts will also try to determine your completions with sudo), include: 
 zstyle ':completion::complete:*' gain-privileges 1
 
@@ -27,15 +28,18 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 
 setopt histignorealldups
 
-
-# Sources ---------------------------------------
+#------------------------------------------------
+# Sources                                       #
+#------------------------------------------------
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/gitstatus/gitstatus.prompt.zsh
 source ~/.zsh/zsh-vi-mode-improved/zsh-vi-mode-improved.zsh
 source ~/.config/broot/launcher/bash/br
 
-# Aliases ---------------------------------------
+#------------------------------------------------
+# Aliases                                       #
+#------------------------------------------------
 # Unused
 #alias ls='ls --color=auto --group-directories-first'
 #alias la='ls -A --color=auto --group-directories-first'
@@ -82,29 +86,28 @@ alias pacmn='pacman'
 alias rebot='reboot'
 alias reboto='reboot'
 
-
-# Export ----------------------------------------
-export VISUAL='nvim'
-export VIDEO='vlc'
-export AUDIO='vlc'
-export EDITOR='nvim'
-export PAGER='less'
-export VIEWER='okular'
-
-
-# NNN -------------------------------------------
+#------------------------------------------------
+# NNN                                           #
+#------------------------------------------------
 export NNN_PLUG=
 export NNN_SSHFS="sshfs -o follow_symlinks"        # make sshfs follow symlinks on the remote
 export NNN_COLORS="2136"                           # use a different color for each context
 export NNN_TRASH=1                                 # trash (needs trash-cli) instead of delete
-export LC_COLLATE="C" # Sort hidden files first (NNN)
+export LC_COLLATE="C"                              # Sort hidden files first (NNN)
 export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$" # bsdtar can extract, list and archivemount can mount ISO 9660 cdrom images (extn: iso).
 export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
 set --export NNN_FIFO "/tmp/nnn.fifo"
 
-
-# RUST ------------------------------------------
+#-----------------------------------------------#
+# Rust                                          #
+#-----------------------------------------------#
 #. "$HOME/.cargo/env"
 
-
+#-----------------------------------------------#
+# Keyring                                       #
+#-----------------------------------------------#
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
 
