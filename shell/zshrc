@@ -25,16 +25,17 @@ zstyle ':completion::complete:*' gain-privileges 1
 
 # Auto complete with case insenstivity
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
+zstyle ':completion:*' menu select
+zmodload zsh/complist
 setopt histignorealldups
 
 #------------------------------------------------
 # Sources                                       #
 #------------------------------------------------
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/gitstatus/gitstatus.prompt.zsh
-source ~/.zsh/zsh-vi-mode-improved/zsh-vi-mode-improved.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+source ~/Github/gitstatus/gitstatus.prompt.zsh
+source ~/Github/vi-mode/vi-mode.zsh
 source ~/.config/broot/launcher/bash/br
 
 #------------------------------------------------
@@ -77,6 +78,7 @@ alias clea='clear'
 alias cler='clear'
 alias celar='clear'
 alias cela='clear'
+alias clera='clear'
 alias eixt='exit'
 alias exti='exit'
 alias sduo='sudo'
@@ -111,3 +113,5 @@ if [ -n "$DESKTOP_SESSION" ];then
     export SSH_AUTH_SOCK
 fi
 
+
+source /home/ccjr/.config/broot/launcher/bash/br
