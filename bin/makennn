@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+cd ~/Github/nnn
+make uninstall
+
+make install O_NERD=1
+
+mv nnn ~/bin
+
+echo "...Done"

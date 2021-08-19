@@ -1,7 +1,7 @@
 # -----------------------------------------------
 #                  --- ZSHRC ---                #
 # -----------------------------------------------
-PROMPT='%F{blue}%n%f@%F{white}%m%f %F{blue}%B%~%b%f '
+#PROMPT='%F{blue}%n%f@%F{white}%m%f %F{blue}%B%~%b%f '
 
 # The following lines were added by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -32,10 +32,10 @@ setopt histignorealldups
 #------------------------------------------------
 # Sources                                       #
 #------------------------------------------------
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
-source ~/Github/gitstatus/gitstatus.prompt.zsh
-source ~/Github/vi-mode/vi-mode.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+source ~/.zsh/gitstatus/gitstatus.prompt.zsh
+source ~/.zsh/vi-mode/vi-mode.zsh
 source ~/.config/broot/launcher/bash/br
 
 #------------------------------------------------
@@ -56,7 +56,8 @@ alias cp="cp -i"
 alias ls='exa --icons --group-directories-first'
 alias la='exa --icons -a --group-directories-first'
 alias ll='exa --icons -alF --group-directories-first'
-alias bat='bat --wrap=auto'
+alias bat='bat --wrap=auto --style=numbers,changes'
+alias bt='bat --wrap=auto --style=numbers,changes'
 alias n='nnn -A -e'
 alias sn='sudo nnn -A -e'
 alias vim='nvim'
@@ -66,6 +67,10 @@ alias mkdir='mkdir -p'
 # Convenience
 alias xup='xrdb ~/.Xresources'
 alias gitup='git add . && git commit && git push'
+alias syu='sudo pacman -Syu'
+alias syy='sudo pacman -Syy'
+alias rns='sudo pacman -Rns'
+alias sc='sudo pacman -Sc'
 
 # 'sudo' alias fix
 alias sudo='nocorrect sudo -E '         
@@ -81,10 +86,14 @@ alias cela='clear'
 alias clera='clear'
 alias eixt='exit'
 alias exti='exit'
+alias usdo='sudo'
 alias sduo='sudo'
 alias sdou='sudo'
+alias sduo='sudo'
+alias pamcn='pacman'
 alias pamcan='pacman'
 alias pacmn='pacman'
+alias pacma='pacman'
 alias rebot='reboot'
 alias reboto='reboot'
 
@@ -112,6 +121,3 @@ if [ -n "$DESKTOP_SESSION" ];then
     eval $(gnome-keyring-daemon --start)
     export SSH_AUTH_SOCK
 fi
-
-
-source /home/ccjr/.config/broot/launcher/bash/br
