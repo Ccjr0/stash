@@ -66,7 +66,7 @@ alias mkdir='mkdir -p'
 
 # Convenience
 alias xup='xrdb ~/.Xresources'
-alias gitup='git add . && git commit && git push'
+alias gitup='git add . && git commit -m "... "&& git push'
 alias syu='sudo pacman -Syu'
 alias syy='sudo pacman -Syy'
 alias rns='sudo pacman -Rns'
@@ -121,3 +121,5 @@ set --export NNN_FIFO "/tmp/nnn.fifo"
 #    eval $(gnome-keyring-daemon --start)
 #    export SSH_AUTH_SOCK
 #fi
+
+source /home/ccjr/.config/broot/launcher/bash/br
