@@ -1,5 +1,6 @@
 [ActivityManager][Global Shortcuts]
 switch-to-activity-97f000a6-5038-4a41-9388-22ac24bad375=
+switch-to-activity-df380df4-4ce8-484a-8481-f881e08d1d05=
 
 [KDE Keyboard Layout Switcher][Global Shortcuts]
 Switch keyboard layout to English (US)=
@@ -15,10 +16,11 @@ Toggle Touchpad=Touchpad Toggle
 
 [kded5][Global Shortcuts]
 Show System Activity=Ctrl+Esc
-display=Meta+P; Display
+display=Display; Meta+P
 
 [khotkeys][Global Shortcuts]
 {5ffc3305-d2e7-4269-a32a-9f9f4dbd124e}=
+{7efb8fb7-9e0b-4864-bc43-6493b2f65836}=
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=
 
 [kmix][Global Shortcuts]
@@ -31,7 +33,7 @@ mute=Volume Mute
 
 [ksmserver][Global Shortcuts]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown
-Lock Session=Ctrl+Alt+L; Screensaver
+Lock Session=Screensaver; Ctrl+Alt+L
 Log Out=Ctrl+Alt+Del
 Log Out Without Confirmation=Ctrl+Alt+Shift+Del
 Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp
@@ -40,7 +42,7 @@ Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp
 Activate Window Demanding Attention=
 Decrease Opacity=Meta+'
 Expose=Ctrl+F9
-ExposeAll=Ctrl+F10; Launch (C)
+ExposeAll=Launch (C); Ctrl+F10
 ExposeClass=Ctrl+F7
 Increase Opacity=Meta+;
 Invert Screen Colors=
@@ -132,14 +134,14 @@ Window Pack Down=
 Window Pack Left=
 Window Pack Right=
 Window Pack Up=
-Window Quick Tile Bottom=
-Window Quick Tile Bottom Left=Meta+Alt+X
-Window Quick Tile Bottom Right=Meta+Alt+V
+Window Quick Tile Bottom=Meta+Ctrl+D
+Window Quick Tile Bottom Left=Meta+Ctrl+X
+Window Quick Tile Bottom Right=Meta+Ctrl+V
 Window Quick Tile Left=Meta+S
 Window Quick Tile Right=Meta+F
-Window Quick Tile Top=
-Window Quick Tile Top Left=Meta+Alt+W
-Window Quick Tile Top Right=Meta+Alt+R
+Window Quick Tile Top=Meta+Ctrl+E
+Window Quick Tile Top Left=Meta+Ctrl+W
+Window Quick Tile Top Right=Meta+Ctrl+R
 Window Raise=
 Window Resize=
 Window Shade=
@@ -234,6 +236,29 @@ playpausemedia=Media Play
 previousmedia=Media Previous
 stopmedia=Media Stop
 
+[org.kde.dolphin.desktop][Global Shortcuts]
+_launch=Meta+R
+
+[org.kde.konsole.desktop][Global Shortcuts]
+NewTab=
+NewWindow=
+_launch=Meta+Return
+
+[org.kde.krunner.desktop][Global Shortcuts]
+RunClipboard=Alt+Shift+F2
+_launch=Search; Alt+F2; Alt+Space
+
+[org.kde.plasma.emojier.desktop][Global Shortcuts]
+_launch=Meta+.
+
+[org.kde.spectacle.desktop][Global Shortcuts]
+ActiveWindowScreenShot=Meta+Print
+CurrentMonitorScreenShot=
+FullScreenScreenShot=Shift+Print
+RectangularRegionScreenShot=Meta+Shift+Print
+WindowUnderCursorScreenShot=Meta+Ctrl+Print
+_launch=Print
+
 [org_kde_powerdevil][Global Shortcuts]
 Decrease Keyboard Brightness=Keyboard Brightness Down
 Decrease Screen Brightness=Monitor Brightness Down
@@ -258,6 +283,7 @@ activate task manager entry 7=
 activate task manager entry 8=
 activate task manager entry 9=
 activate widget 24=
+activate widget 26=
 activate widget 4=Meta+Space
 clear-history=
 clipboard_action=Ctrl+Alt+X
@@ -275,3 +301,11 @@ stop current activity=
 switch to next activity=
 switch to previous activity=
 toggle do not disturb=
+
+[systemsettings.desktop][Global Shortcuts]
+_launch=Tools
+kcm-kscreen=
+kcm-lookandfeel=
+kcm-users=
+powerdevilprofilesconfig=
+screenlocker=
