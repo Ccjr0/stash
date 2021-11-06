@@ -10,14 +10,11 @@ nnoremap q <nop>
 nnoremap Q <nop>
 nnoremap K <nop>
 nnoremap J <nop>
-nnoremap _ <nop>
 nnoremap = <nop>
 nnoremap g0 $
 
 vnoremap < <gv
 vnoremap > >gv
-vnoremap - $
-vnoremap _ <nop>
 vnoremap = <nop>
 vnoremap J <nop>
 vnoremap K <nop>

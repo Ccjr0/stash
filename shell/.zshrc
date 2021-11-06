@@ -36,7 +36,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
 source ~/.zsh/gitstatus/gitstatus.prompt.zsh
 source ~/.zsh/vi-mode/vi-mode.zsh
-source ~/.config/broot/launcher/bash/br
+#source ~/.config/broot/launcher/bash/br
 
 #------------------------------------------------
 # Aliases                                       #
@@ -94,6 +94,8 @@ alias pamcn='pacman'
 alias pamcan='pacman'
 alias pacmn='pacman'
 alias pacma='pacman'
+alias upt='sudo apt update'
+alias zdup='sudo zypper dup'
 alias rebot='reboot'
 alias reboto='reboot'
 
@@ -121,5 +123,3 @@ set --export NNN_FIFO "/tmp/nnn.fifo"
 #    eval $(gnome-keyring-daemon --start)
 #    export SSH_AUTH_SOCK
 #fi
-
-source /home/ccjr/.config/broot/launcher/bash/br
