@@ -1,7 +1,7 @@
 # -----------------------------------------------
 #                  --- ZSHRC ---                #
 # -----------------------------------------------
-#PROMPT='%F{blue}%n%f@%F{white}%m%f %F{blue}%B%~%b%f '
+# PROMPT='%F{blue}%n%f@%F{white}%m%f %F{blue}%B%~%b%f '
 
 # The following lines were added by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -29,30 +29,59 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 setopt histignorealldups
 
+# Color man pages
+export LESS_TERMCAP_mb=$'\E[01;32m'
+export LESS_TERMCAP_md=$'\E[01;32m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;47;34m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;36m'
+export LESS=-R
+
+# Offer to install missing package if command is not found
+if [[ -r /usr/share/zsh/functions/command-not-found.zsh ]]; then
+    source /usr/share/zsh/functions/command-not-found.zsh
+    export PKGFILE_PROMPT_INSTALL_MISSING=1
+fi
 #------------------------------------------------
 # Sources                                       #
 #------------------------------------------------
+
+# Use powerline
+USE_POWERLINE="true"
+# Source manjaro-zsh-configuration
+# if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
+#   source /usr/share/zsh/manjaro-zsh-config
+# fi
+# Use manjaro zsh prompt
+if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
+  source /usr/share/zsh/manjaro-zsh-prompt
+fi
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
-source ~/.zsh/gitstatus/gitstatus.prompt.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.zsh/gitstatus/gitstatus.prompt.zsh
 source ~/.zsh/vi-mode/vi-mode.zsh
-#source ~/.config/broot/launcher/bash/br
+# source ~/.config/broot/launcher/bash/br
 
 #------------------------------------------------
 # Aliases                                       #
 #------------------------------------------------
 # Unused
-#alias ls='ls --color=auto --group-directories-first'
-#alias la='ls -A --color=auto --group-directories-first'
-#alias ll='ls -alF --color=auto --group-directories-first'
-#alias grep='grep --color=auto'
-#alias fgrep='fgrep --color=auto'
-#alias egrep='egrep --color=auto'
-#alias DOTS='cd ~/github/dots && lazygit'
-#alias GDEV='cd ~/github/gdev && lazygit'
-#alias SNIPER='cd ~/github/SniperGame && lazygit'
+# alias ls='ls --color=auto --group-directories-first'
+# alias la='ls -A --color=auto --group-directories-first'
+# alias ll='ls -alF --color=auto --group-directories-first'
+# alias grep='grep --color=auto'
+# alias fgrep='fgrep --color=auto'
+# alias egrep='egrep --color=auto'
+# alias DOTS='cd ~/github/dots && lazygit'
+# alias GDEV='cd ~/github/gdev && lazygit'
+# alias SNIPER='cd ~/github/SniperGame && lazygit'
 
-alias cp="cp -i"
+alias cp="cp -i"                                                # Confirm before overwriting something
+alias df='df -h'                                                # Human-readable sizes
+alias free='free -m'                                            # Show sizes in MB
 alias ls='exa --icons --group-directories-first'
 alias la='exa --icons -a --group-directories-first'
 alias ll='exa --icons -alF --group-directories-first'
@@ -66,7 +95,7 @@ alias mkdir='mkdir -p'
 
 # Convenience
 alias xup='xrdb ~/.Xresources'
-alias gitup='git add . && git commit -m "... "&& git push'
+alias gitup='git add . && git commit && git push'
 alias syu='sudo pacman -Syu'
 alias syy='sudo pacman -Syy'
 alias rns='sudo pacman -Rns'
@@ -100,6 +129,37 @@ alias rebot='reboot'
 alias reboto='reboot'
 
 #------------------------------------------------
+# Export                                        #
+#------------------------------------------------
+export EDITOR="nvim"                                                                                      
+export READER="okular"
+export VISUAL="nvim"
+export TERMINAL="konsole"
+export BROWSER="firefox"
+export VIDEO="vlc"
+export IMAGE="gwenview"
+export COLORTERM="truecolor"
+export OPENER="xdg-open"
+export PAGER="less"
+
+export GTK_USE_PORTAL=1
+
+# Start blinking
+export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
+# Start bold
+export LESS_TERMCAP_md=$(tput bold; tput setaf 2) # green
+# Start stand out
+export LESS_TERMCAP_so=$(tput bold; tput setaf 3) # yellow
+# End standout
+export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+# Start underline
+export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 1) # red
+# End Underline
+export LESS_TERMCAP_ue=$(tput sgr0)
+# End bold, blinking, standout, underline
+export LESS_TERMCAP_me=$(tput sgr0)
+
+#------------------------------------------------
 # NNN                                           #
 #------------------------------------------------
 export NNN_PLUG=
@@ -114,12 +174,12 @@ set --export NNN_FIFO "/tmp/nnn.fifo"
 #-----------------------------------------------#
 # Rust                                          #
 #-----------------------------------------------#
-#. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 #-----------------------------------------------#
 # Keyring                                       #
 #-----------------------------------------------#
-#if [ -n "$DESKTOP_SESSION" ];then
-#    eval $(gnome-keyring-daemon --start)
-#    export SSH_AUTH_SOCK
-#fi
+if [ -n "$DESKTOP_SESSION" ];then                                                                         
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
