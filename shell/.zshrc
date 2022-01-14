@@ -29,15 +29,14 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 setopt histignorealldups
 
-# Color man pages
-export LESS_TERMCAP_mb=$'\E[01;32m'
-export LESS_TERMCAP_md=$'\E[01;32m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;47;34m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;36m'
-export LESS=-R
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
+zstyle ':completion:*' rehash true                              # automatically find new executables in path 
+
+# Speed up completions
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # Offer to install missing package if command is not found
 if [[ -r /usr/share/zsh/functions/command-not-found.zsh ]]; then
@@ -50,10 +49,12 @@ fi
 
 # Use powerline
 USE_POWERLINE="true"
+
 # Source manjaro-zsh-configuration
 # if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
 #   source /usr/share/zsh/manjaro-zsh-config
 # fi
+
 # Use manjaro zsh prompt
 if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
   source /usr/share/zsh/manjaro-zsh-prompt
@@ -75,9 +76,8 @@ source ~/.zsh/vi-mode/vi-mode.zsh
 # alias grep='grep --color=auto'
 # alias fgrep='fgrep --color=auto'
 # alias egrep='egrep --color=auto'
-# alias DOTS='cd ~/github/dots && lazygit'
-# alias GDEV='cd ~/github/gdev && lazygit'
-# alias SNIPER='cd ~/github/SniperGame && lazygit'
+# alias n='nnn -A -e'
+# alias sn='sudo nnn -A -e'
 
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
@@ -86,20 +86,13 @@ alias ls='exa --icons --group-directories-first'
 alias la='exa --icons -a --group-directories-first'
 alias ll='exa --icons -alF --group-directories-first'
 alias bat='bat --wrap=auto --style=numbers,changes'
-alias bt='bat --wrap=auto --style=numbers,changes'
-alias n='nnn -A -e'
-alias sn='sudo nnn -A -e'
 alias vim='nvim'
-alias ytmdl='ytmdl --skip-meta'
+alias ytmdl='ytmdl --skip-meta --ignore-chapters'
 alias mkdir='mkdir -p'
 
 # Convenience
 alias xup='xrdb ~/.Xresources'
 alias gitup='git add . && git commit && git push'
-alias syu='sudo pacman -Syu'
-alias syy='sudo pacman -Syy'
-alias rns='sudo pacman -Rns'
-alias sc='sudo pacman -Sc'
 
 # 'sudo' alias fix
 alias sudo='nocorrect sudo -E '         
@@ -141,23 +134,17 @@ export IMAGE="gwenview"
 export COLORTERM="truecolor"
 export OPENER="xdg-open"
 export PAGER="less"
-
 export GTK_USE_PORTAL=1
 
-# Start blinking
-export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
-# Start bold
-export LESS_TERMCAP_md=$(tput bold; tput setaf 2) # green
-# Start stand out
-export LESS_TERMCAP_so=$(tput bold; tput setaf 3) # yellow
-# End standout
-export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
-# Start underline
-export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 1) # red
-# End Underline
-export LESS_TERMCAP_ue=$(tput sgr0)
-# End bold, blinking, standout, underline
-export LESS_TERMCAP_me=$(tput sgr0)
+# Color man pages
+export LESS_TERMCAP_mb=$'\E[01;32m'
+export LESS_TERMCAP_md=$'\E[01;32m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;47;34m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;36m'
+export LESS=-R
 
 #------------------------------------------------
 # NNN                                           #

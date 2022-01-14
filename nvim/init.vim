@@ -10,13 +10,11 @@ nnoremap q <nop>
 nnoremap Q <nop>
 nnoremap K <nop>
 nnoremap J <nop>
-nnoremap ) $
 
 vnoremap < <gv
 vnoremap > >gv
 vnoremap J <nop>
 vnoremap K <nop>
-vnoremap ) $
 
 " -----------------------------------------------
 " Settings                                      "
