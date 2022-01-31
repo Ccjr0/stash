@@ -13,6 +13,8 @@ nnoremap J <nop>
 
 vnoremap < <gv
 vnoremap > >gv
+vnoremap q <nop>
+vnoremap Q <nop>
 vnoremap J <nop>
 vnoremap K <nop>
 
