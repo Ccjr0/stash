@@ -136,6 +136,7 @@ alias upt='sudo apt update'
 alias zdup='sudo zypper dup'
 alias rebot='reboot'
 alias reboto='reboot'
+alias vim='nvim'
 
 # (Unused)
 # alias ls='ls --color=auto --group-directories-first'
@@ -146,7 +147,6 @@ alias reboto='reboot'
 # alias egrep='egrep --color=auto'
 # alias n='nnn -A -e'
 # alias sn='sudo nnn -A -e'
-# alias vim='nvim'
 
 
 ## ---- Theming section ----
@@ -160,7 +160,7 @@ colors
 ## ---- Export section ----
 export EDITOR="kate"
 export READER="okular"
-export VISUAL="nano"
+export VISUAL="nvim"
 export TERMINAL="konsole"
 export BROWSER="firefox"
 export VIDEO="vlc"
