@@ -33,8 +33,6 @@ set ignorecase      "case insensitive search
 set smartcase
 set encoding=utf-8
 set number          "display line numbers
-set termguicolors   "truecolor enable
-set cursorline      "highlights current line
 set wildmode=longest,list,full
 set splitbelow splitright
 set clipboard=unnamedplus

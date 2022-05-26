@@ -1,29 +1,26 @@
 # -----------------------------------------------
 #                  --- ZSHRC ---                #
 # -----------------------------------------------
+PROMPT='%F{blue}%n%f@%F{white}%m%f %F{blue}%B%~%b%f '
 
-## ---- Options section ----
-setopt correct                                                  # Auto correct mistakes
-setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
-setopt nocaseglob                                               # Case insensitive globbing
-setopt rcexpandparam                                            # Array expension with parameters
-setopt nocheckjobs                                              # Don't warn about running processes when exiting
-setopt numericglobsort                                          # Sort filenames numerically when it makes sense
-setopt nobeep                                                   # No beep
-setopt appendhistory                                            # Immediately append history instead of overwriting
-setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
-setopt autocd                                                   # if only directory path is entered, cd there.
-setopt inc_append_history                                       # save commands are added to the history immediately, otherwise only when shell exits.
-setopt histignorespace                                          # Don't save commands that start with space
+# The following lines were added by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+setopt autocd extendedglob nomatch
+# End of lines configured by zsh-newuser-install
 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' rehash true                              # automatically find new executables in path
-# Speed up completions
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-# For enabling autocompletion of privileged environments in privileged commands (e.g. if you complete a command starting with sudo, completion scripts will also try to determine your completions with sudo), include:
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/ccjr/.zshrc'
+#bindkey -v
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+#------------------------------------------------
+# Common                                        #
+#------------------------------------------------
+# For enabling autocompletion of privileged environments in privileged commands (e.g. if you complete a command starting with sudo, completion scripts will also try to determine your completions with sudo), include: 
 zstyle ':completion::complete:*' gain-privileges 1
 
 # Auto complete with case insenstivity
@@ -34,29 +31,41 @@ setopt histignorealldups
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' rehash true                              # automatically find new executables in path
+zstyle ':completion:*' rehash true                              # automatically find new executables in path 
 
 # Speed up completions
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
-HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
-#export EDITOR=/usr/bin/nano
-#export VISUAL=/usr/bin/nano
-WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
+# Offer to install missing package if command is not found
+if [[ -r /usr/share/zsh/functions/command-not-found.zsh ]]; then
+    source /usr/share/zsh/functions/command-not-found.zsh
+    export PKGFILE_PROMPT_INSTALL_MISSING=1
+fi
 
-## ---- Sources section ----
+#------------------------------------------------
+# Sources                                       #
+#------------------------------------------------
+
 # Use powerline
-#USE_POWERLINE="true"
+USE_POWERLINE="true"
 
-# source ~/.config/broot/launcher/bash/br
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/gitstatus/gitstatus.prompt.zsh
+source ~/.zsh/vi-mode/vi-mode.zsh
+#source ~/.config/broot/launcher/bash/br
 
-## ---- Alias section ----
-# 'sudo' alias fix
-alias sudo='nocorrect sudo -E '
+#------------------------------------------------
+# Aliases                                       #
+#------------------------------------------------
+# Unused
+#alias ls='ls --color=auto --group-directories-first'
+#alias la='ls -A --color=auto --group-directories-first'
+#alias ll='ls -alF --color=auto --group-directories-first'
+#alias n='nnn -A -e'
+#alias sn='sudo nnn -A -e'
 
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
@@ -64,13 +73,20 @@ alias free='free -m'                                            # Show sizes in 
 alias ls='exa --icons --group-directories-first'
 alias la='exa --icons -a --group-directories-first'
 alias ll='exa --icons -alF --group-directories-first'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 alias bat='bat --wrap=auto --style=numbers,changes'
-alias ytmdl='ytmdl --skip-meta --ignore-chapters'
+alias vim='nvim'
+alias ytmp3='youtube-dl -x --audio-format mp3'
 alias mkdir='mkdir -p'
 
 # Convenience
 alias xup='xrdb ~/.Xresources'
 alias gitup='git add . && git commit && git push'
+
+# 'sudo' alias fix
+alias sudo='nocorrect sudo -E '         
 
 # Typo aliases 
 alias claer='clear'
@@ -91,28 +107,14 @@ alias pamcn='pacman'
 alias pamcan='pacman'
 alias pacmn='pacman'
 alias pacma='pacman'
-alias upt='sudo apt update'
 alias zdup='sudo zypper dup'
 alias rebot='reboot'
 alias reboto='reboot'
-alias vim='nvim'
 
-# (Unused)
-# alias ls='ls --color=auto --group-directories-first'
-# alias la='ls -A --color=auto --group-directories-first'
-# alias ll='ls -alF --color=auto --group-directories-first'
-# alias grep='grep --color=auto'
-# alias fgrep='fgrep --color=auto'
-# alias egrep='egrep --color=auto'
-# alias nnn='nnn -A -e'
-# alias snnn='sudo nnn -A -e'
-
-
-## ---- Theming section ----
-PROMPT='%F{blue}%n%f@%F{white}%m%f %F{blue}%B%~%b%f '
-
-## ---- Export section ----
-export EDITOR="kate"
+#------------------------------------------------
+# Export                                        #
+#------------------------------------------------
+export EDITOR="nvim"                                                                                      
 export READER="okular"
 export VISUAL="nvim"
 export TERMINAL="konsole"
@@ -134,7 +136,9 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-R
 
-# NNN
+#------------------------------------------------
+# NNN                                           #
+#------------------------------------------------
 export NNN_PLUG=
 export NNN_SSHFS="sshfs -o follow_symlinks"        # make sshfs follow symlinks on the remote
 export NNN_COLORS="2136"                           # use a different color for each context
@@ -144,19 +148,7 @@ export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|l
 export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
 set --export NNN_FIFO "/tmp/nnn.fifo"
 
-
-## ---- Plugins section ----
-# Enable fish style features
-# Use syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Use history substring search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-# bind UP and DOWN arrow keys to history substring search
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-# Rust
+#-----------------------------------------------#
+# Rust                                          #
+#-----------------------------------------------#
 # . "$HOME/.cargo/env"
